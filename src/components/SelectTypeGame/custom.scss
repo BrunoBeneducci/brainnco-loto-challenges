@@ -1,0 +1,50 @@
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #fff;
+    background-image: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+/* Custom Select */
+.select {
+    position: relative;
+    display: flex;
+    width: 230px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+select {
+    flex: 1;
+    padding: 15px;
+    color: #333;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.select:after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+
+    background-image: url(../../images/caret-down.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 14px;
+    height: 14px;
+}

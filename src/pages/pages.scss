@@ -1,0 +1,97 @@
+@import '/src/styles/variables';
+
+.page {
+    height: 100vh;
+    display: flex;
+
+    &.megasena {
+        .page-box-left {
+            background-color: $megasena;
+        }
+    }
+
+    &.quina {
+        .page-box-left {
+            background-color: $quina;
+        }
+    }
+
+    &.lotofacil {
+        .page-box-left {
+            background-color: $lotofacil;
+        }
+    }
+
+    &.lotomania {
+        .page-box-left {
+            background-color: $lotomania;
+        }
+    }
+
+    &.timemania {
+        .page-box-left {
+            background-color: $timemania;
+        }
+    }
+
+    &.diadesorte {
+        .page-box-left {
+            background-color: $diadesorte;
+        }
+    }
+    
+    &-box-left {
+        width: 600px;
+        padding: 50px;
+        position: relative;
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .page-box-title {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 62px;
+                margin-right: 10px;
+            }
+
+            h1 {
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 30px;
+            }
+        }
+        
+        .page-box-footer {
+            color: #fff;
+            
+            h2 {
+                text-transform: uppercase;
+                font-size: 13px;
+                letter-spacing: 2px;
+                font-weight: 500;
+            }
+            
+            h3 {
+                text-transform: uppercase;
+                font-size: 20px;
+            }
+        }
+    }
+
+    &-box-right {
+        background-color: #efefef;
+        flex: 1;
+
+        .page-box-result {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    }
+}
