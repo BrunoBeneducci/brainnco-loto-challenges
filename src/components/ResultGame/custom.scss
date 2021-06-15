@@ -2,13 +2,15 @@ ul {
     list-style: none;
     padding: 0;
     display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     li {
         height: 100px;
         width: 100px;
         background-color: #fff;
         border-radius: 50%;
-        margin: 0 10px;
+        margin: 10px;
 
         font-weight: 700;
         font-size: 27px;
