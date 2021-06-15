@@ -16,9 +16,9 @@ function Routes() {
             <SelectGameContextProvider>
                 <Switch>
                     <Route exact path="/" component={MegaSena}/>
-                    <Route path="/megasena" component={MegaSena}/>
+                    <Route path="/mega-sena" component={MegaSena}/>
                     <Route path="/quina" component={Quina}/>
-                    <Route path="/lotofacil" component={LotoFacil}/>
+                    <Route path="/lotofácil" component={LotoFacil}/>
                     <Route path="/lotomania" component={LotoMania}/>
                     <Route path="/timemania" component={TimeMania}/>
                     <Route path="/dia-de-sorte" component={DiaDeSorte}/>

@@ -50,6 +50,21 @@
         flex-direction: column;
         justify-content: space-between;
 
+        &:after {
+            content: '';
+            background-image: url(../images/fx-desk.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right center;
+            width: 250px;
+            height: 100vh;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            // background-image: url(../../images/caret-down.svg);
+        }
+
         .page-box-title {
             display: flex;
             align-items: center;

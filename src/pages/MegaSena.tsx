@@ -11,7 +11,7 @@ const MegaSena = () => {
                 
             <div className="page-box page-box-left">
                 <div className="page-box-select">
-                    <SelectTypeGame/>
+                    <SelectTypeGame currentValue="mega-sena"/>
                 </div>
 
                 <div className="page-box-title">
@@ -21,7 +21,7 @@ const MegaSena = () => {
 
                 <div className="page-box-footer">
                     <h2>Concurso</h2>
-                    <h3>4531 - 07/04/2020</h3>
+                    <h3>0000 - 07/04/2020</h3>
                 </div>
             </div>
 

@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 type SelectGameContextData = {
-    valueGame: string;
+    valueGame: number;
     changeValSelect: (props) => void;
 };
 
@@ -12,16 +12,14 @@ export function SelectGameContextProvider({ children }) {
 
     const history = useHistory();
 
-    const [valueGame, setValueGame] = useState('mega-sena');
+    const [valueGame, setValueGame] = useState(0);
 
     const changeValSelect = (props) => {
-        setValueGame(props);
+        setValueGame(props.id);
+        const handleName = props.nome.split(" ").join("-");
+        history.push(`/${handleName}`);
     };
-
-    useEffect(() => {
-        changeValSelect(history.location.pathname.substring(1));
-    }, [history]);
-
+    
     return (
         <SelectGameContext.Provider value={{ valueGame, changeValSelect }}>
             { children }

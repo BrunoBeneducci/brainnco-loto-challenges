@@ -11,12 +11,12 @@ const LotoFacil = () => {
                 
             <div className="page-box page-box-left">
                 <div className="page-box-select">
-                    <SelectTypeGame/>
+                    <SelectTypeGame currentValue="lotofácil"/>
                 </div>
 
                 <div className="page-box-title">
                     <img src={imgLoterias} alt="Logo Loteriais" />
-                    <h1>Mega-Sena</h1>
+                    <h1>Lotofácil</h1>
                 </div>
 
                 <div className="page-box-footer">

@@ -1,15 +1,25 @@
 import './custom.scss';
 
-export default function ResultGame() {
+const ResultGame = props => {
 
     return (
         <ul>
-            <li>06</li>
-            <li>09</li>
-            <li>28</li>
-            <li>33</li>
-            <li>37</li>
-            <li>40</li>
+            { 
+                props.numeros ? (
+                    props.numeros.map((el) => <li key={el}>{el}</li> )
+                ) : (
+                    <>
+                        <li>00</li>
+                        <li>00</li>
+                        <li>00</li>
+                        <li>00</li>
+                        <li>00</li>
+                        <li>00</li>
+                    </>
+                )
+            }
         </ul>
     );
 }
+
+export default ResultGame;
