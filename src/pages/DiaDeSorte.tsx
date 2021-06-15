@@ -3,6 +3,7 @@ import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import SelectTypeGame from '../components/SelectTypeGame';
 import ResultGame from '../components/ResultGame';
+import FullLoader from '../components/FullLoader';
 import imgLoterias from '../images/logo-loterias.svg';
 import Api from '../services/api';
 import './pages.scss';
@@ -12,6 +13,7 @@ const DiaDeSorte = () => {
     const [concurso, setConcurso] = useState('');
     const [numerosConcurso, setNumerosConcurso] = useState([]);
     const [dataConcurso, setDataConcurso] = useState('');
+    const [loader, setLoader] = useState(true);
 
     useEffect(() => {
         Api.get('/loterias-concursos')
@@ -25,12 +27,15 @@ const DiaDeSorte = () => {
         .then(({ data }) => {
             setNumerosConcurso(data.numeros);
             setDataConcurso(data.data);
+            setLoader(false);
         })
         .catch(() => { console.log('Ocorreu algum erro :(') })
     }, []);
 
     return (
         <div className="page diadesorte">
+
+            <FullLoader status={loader}/>
                 
             <div className="page-box page-box-left">
                 <div className="page-box-select">
