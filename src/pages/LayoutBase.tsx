@@ -25,14 +25,17 @@ const LayoutBase = () => {
             return data[valueGame].concursoId;
         })
         .then(( data ) => {
-            console.log('setConcurso', data);
             setConcurso(data);
             return Api.get(`/concursos/${data}`)
         })
         .then(({ data }) => {
             setNumerosConcurso(data.numeros);
             setDataConcurso(data.data);
-            setLoader(false);
+        })
+        .then(() => {
+            setTimeout(() => {
+                setLoader(false);
+            }, 300);
         })
         .catch(() => { console.log('Ocorreu algum erro :(') })
     }, [valueGame, nameGame]);
