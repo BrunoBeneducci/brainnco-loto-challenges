@@ -20,7 +20,7 @@ const SelectTypeGame = props => {
         .then(({ data }) => {
             setLoto(data);
         })
-        .catch(() => { console.log('Ocorreu algum erro :(') })
+        .catch(() => { console.log('Ocorreu algum erro :( /loterias') })
     }, [valueGame]);
     
     useEffect(() => {

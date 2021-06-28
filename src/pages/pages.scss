@@ -4,7 +4,11 @@
     height: 100vh;
     display: flex;
 
-    &.megasena {
+    .page-box-left {
+        background-color: $megasena;
+    }
+
+    &.mega-sena {
         .page-box-left {
             background-color: $megasena;
         }
@@ -16,7 +20,7 @@
         }
     }
 
-    &.lotofacil {
+    &.lotofácil {
         .page-box-left {
             background-color: $lotofacil;
         }
@@ -34,7 +38,7 @@
         }
     }
 
-    &.diadesorte {
+    &.dia-de-sorte {
         .page-box-left {
             background-color: $diadesorte;
         }

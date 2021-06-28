@@ -6,22 +6,27 @@ import ResultGame from '../components/ResultGame';
 import FullLoader from '../components/FullLoader';
 import imgLoterias from '../images/logo-loterias.svg';
 import Api from '../services/api';
+import { useSelectGame } from '../context/SelectGame';
 import './pages.scss';
 
-const LotoMania = () => {
+const LayoutBase = () => {
 
+    const {valueGame, nameGame} = useSelectGame();
     const [concurso, setConcurso] = useState('');
     const [numerosConcurso, setNumerosConcurso] = useState([]);
     const [dataConcurso, setDataConcurso] = useState('');
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {
+        setLoader(true);
+
         Api.get('/loterias-concursos')
         .then(({ data }) => {
-            setConcurso(data[3].concursoId);
-            return data[3].concursoId;
+            return data[valueGame].concursoId;
         })
         .then(( data ) => {
+            console.log('setConcurso', data);
+            setConcurso(data);
             return Api.get(`/concursos/${data}`)
         })
         .then(({ data }) => {
@@ -30,21 +35,21 @@ const LotoMania = () => {
             setLoader(false);
         })
         .catch(() => { console.log('Ocorreu algum erro :(') })
-    }, []);
+    }, [valueGame, nameGame]);
 
     return (
-        <div className="page lotofacil">
+        <div className={nameGame ? nameGame.split(" ").join("-").toLowerCase() + ' page' : 'page'}>
 
             <FullLoader status={loader}/>
                 
             <div className="page-box page-box-left">
                 <div className="page-box-select">
-                    <SelectTypeGame currentValue="lotomania"/>
+                    <SelectTypeGame currentValue={valueGame}/>
                 </div>
 
                 <div className="page-box-title">
                     <img src={imgLoterias} alt="Logo Loteriais" />
-                    <h1>Lotomania</h1>
+                    <h1>{nameGame.length ? nameGame : 'Mega-Sena'}</h1>
                 </div>
 
                 <div className="page-box-footer">
@@ -63,4 +68,4 @@ const LotoMania = () => {
     )
 }
 
-export default LotoMania;
+export default LayoutBase;
