@@ -1,16 +1,21 @@
 import { useSelectGame } from '../../context/SelectGame';
 import Api from '../../services/api';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './custom.scss';
 
 const SelectTypeGame = props => {
+
+    const history = useHistory();
 
     const { valueGame, changeValSelect } = useSelectGame();
 
     const handleSelect = (event) => {
         const selected = parseInt(event.target.value);
         const routeSelect = loto.find(el => el.id === selected);
-        changeValSelect(routeSelect);
+        if(routeSelect) {
+            changeValSelect(routeSelect);
+        }
     }
     
     const [loto, setLoto] = useState([]);
@@ -22,13 +27,13 @@ const SelectTypeGame = props => {
         })
         .catch(() => { console.log('Ocorreu algum erro :( /loterias') })
     }, [valueGame]);
-    
+
     useEffect(() => {
-        const routeSelect = loto.find(el => el.nome === props.currentValue);
-        if (routeSelect) {
-            changeValSelect(routeSelect);
+        const currentRoute = loto.find(el => el.nome === history.location.pathname.substring(1));
+        if (currentRoute) {
+            changeValSelect(currentRoute);
         }
-    }, [changeValSelect, loto, props.currentValue]);
+    }, [changeValSelect, history.location.pathname, loto]);
 
     return (
         <div>
