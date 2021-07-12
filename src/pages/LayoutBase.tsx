@@ -12,9 +12,9 @@ import './pages.scss';
 const LayoutBase = () => {
 
     const {valueGame, nameGame} = useSelectGame();
-    const [concurso, setConcurso] = useState('');
-    const [numerosConcurso, setNumerosConcurso] = useState([]);
-    const [dataConcurso, setDataConcurso] = useState('');
+    const [contest, setContest] = useState('');
+    const [contestNumbers, setContestNumbers] = useState([]);
+    const [contestDate, setContestDate] = useState('');
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {
@@ -25,12 +25,12 @@ const LayoutBase = () => {
             return data[valueGame].concursoId;
         })
         .then(( data ) => {
-            setConcurso(data);
+            setContest(data);
             return Api.get(`/concursos/${data}`)
         })
         .then(({ data }) => {
-            setNumerosConcurso(data.numeros);
-            setDataConcurso(data.data);
+            setContestNumbers(data.numeros);
+            setContestDate(data.data);
         })
         .then(() => {
             setTimeout(() => {
@@ -57,13 +57,13 @@ const LayoutBase = () => {
 
                 <div className="page-box-footer">
                     <h2>Concurso</h2>
-                    <h3>{concurso ? concurso : '0000'} - { dataConcurso ? format(parseISO(dataConcurso), 'dd/MM/yy', { locale: ptBR }) : '00/00/0000' }</h3>
+                    <h3>{contest ? contest : '0000'} - { contestDate ? format(parseISO(contestDate), 'dd/MM/yy', { locale: ptBR }) : '00/00/0000' }</h3>
                 </div>
             </div>
 
             <div className="page-box page-box-right">
                 <div className="page-box-result">
-                    <ResultGame numeros={numerosConcurso}/>
+                    <ResultGame numeros={contestNumbers}/>
                 </div>
             </div>
 
