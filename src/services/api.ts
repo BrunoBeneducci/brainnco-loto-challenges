@@ -3,7 +3,7 @@ import { mockLoterias, mockLoteriasConcursos, mockConcursos } from './mockData';
 
 const api = axios.create({
     baseURL: 'https://brainn-api-loterias.herokuapp.com/api/v1',
-    timeout: 5000, // timeout de 5s para não travar se API estiver offline
+    timeout: 3000, // timeout de 5s para não travar se API estiver offline
 });
 
 // Flag para controlar se estamos usando mock
